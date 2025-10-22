@@ -1,0 +1,53 @@
+--eliminar si existe la base de datos--
+DROP DATABASE IF EXISTS betterware;
+
+--creación de base de datos--
+
+CREATE DATABASE betterware;
+USE betterware;
+
+DROP TABLE IF EXISTS productos;
+
+CREATE TABLE productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  codigo VARCHAR(100) NOT NULL,              -- Código del producto
+  producto VARCHAR(255) NOT NULL,            -- Nombre del producto
+  descripcion TEXT,                          -- Descripción larga
+  especificaciones TEXT,                     -- Especificaciones técnicas
+  precio_compra DECIMAL(10,2) DEFAULT NULL,  -- Puede venir vacío
+  precio_estandar DECIMAL(10,2) DEFAULT NULL,
+  precio_promocion DECIMAL(10,2) DEFAULT NULL, -- Puede venir vacío
+  categoria VARCHAR(150),                    -- Ej: Higiene y Limpieza, Hogar
+  cantidad INT DEFAULT 0,                    -- Si viene vacío, se guarda 0
+  bolsa VARCHAR(100),                        -- Material o tipo de empaque
+  nuevo TINYINT(1) DEFAULT NULL,             -- 1 = Sí, 0 = No, NULL = vacío
+  promocion VARCHAR(100) DEFAULT NULL        -- Puede ser 1/0, Sí/No o texto como "Casita"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--verificar que todo se creo bien--
+
+SHOW DATABASES;
+USE betterware;
+SHOW TABLES;
+DESCRIBE productos;
+
+--importación del csv--
+LOAD DATA LOCAL INFILE 'C:/Betterware/productos.csv'
+INTO TABLE productos
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES
+(codigo, producto, descripcion, especificaciones, @precio_compra, @precio_estandar, @precio_promocion, categoria, @cantidad, bolsa, @nuevo, @promocion)
+SET
+  precio_compra = NULLIF(REPLACE(@precio_compra, ',', ''), ''),
+  precio_estandar = NULLIF(REPLACE(@precio_estandar, ',', ''), ''),
+  precio_promocion = NULLIF(REPLACE(@precio_promocion, ',', ''), ''),
+  cantidad = NULLIF(@cantidad, ''),
+  nuevo = CASE
+            WHEN TRIM(LOWER(@nuevo)) IN ('sí','si','s','true','1','yes') THEN 1
+            WHEN TRIM(LOWER(@nuevo)) IN ('no','false','0') THEN 0
+            ELSE NULL
+          END,
+  promocion = NULLIF(@promocion, '');
