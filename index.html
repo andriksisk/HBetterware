@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBetterware</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="titulo">HBetterware</h1>
+        <div class="acciones">
+            <input type="text" id="searchInput" placeholder="Buscar producto...">
+            <button id="btnPedido">Pedido</button>
+            <button id="btnContacto">Contacto</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- INVENTARIO -->
+        <section id="productos">
+            <h2>Catálogo de Productos</h2>
+            <div id="productosContainer" class="grid"></div>
+        </section>
+
+        <!-- PEDIDOS -->
+        <section id="pedido" class="oculto">
+            <h2>Realizar Pedido</h2>
+            <form id="pedidoForm">
+                <label for="nombre">Nombre del Cliente:</label>
+                <input type="text" id="nombre" required>
+
+                <label for="productoPedido">Producto:</label>
+                <select id="productoPedido" required></select>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" min="1" value="1" required>
+
+                <label for="direccion">Dirección:</label>
+                <textarea id="direccion" rows="3" required></textarea>
+
+                <button type="submit">Enviar Pedido</button>
+            </form>
+            <p id="mensajeConfirmacion" class="oculto"></p>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="oculto">
+            <h2>Contacto</h2>
+            <div class="contacto-info">
+                <p><strong>Dirección:</strong> Av. Xalapa 122, Col del Maestro, 91030 Xalapa-Enríquez, Ver.</p>
+                <p><strong>Teléfono:</strong> +52 228 123 4567</p>
+                <p><strong>Correo:</strong> contacto@hbetterware.com</p>
+            </div>
+            <div class="mapa">
+                <iframe
+                    src="https://www.google.com/maps?q=Av.+Xalapa+122,+Col+del+Maestro,+91030+Xalapa-Enríquez,+Ver.&output=embed"
+                    width="100%"
+                    height="300"
+                    style="border:0; border-radius:10px;"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 HBetterware</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
