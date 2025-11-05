@@ -17,31 +17,31 @@
     </header>
 
     <main>
-        <!-- INVENTARIO -->
-        <section id="productos">
-            <h2>Catálogo de Productos</h2>
-            <div id="productosContainer" class="grid"></div>
-        </section>
+        <!-- Sección de Inventario -->
+         <section id="inventario" class="section active">
+            <h2>Inventario de Productos</h2>
+            <div class="productos-grid" id="productos">
+                <!-- Los productos se insertan dinámicamente desde script.js -->
+                </div>
+            </section>
 
         <!-- PEDIDOS -->
-        <section id="pedido" class="oculto">
-            <h2>Realizar Pedido</h2>
-            <form id="pedidoForm">
-                <label for="nombre">Nombre del Cliente:</label>
-                <input type="text" id="nombre" required>
-
-                <label for="productoPedido">Producto:</label>
-                <select id="productoPedido" required></select>
-
-                <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" min="1" value="1" required>
-
-                <label for="direccion">Dirección:</label>
-                <textarea id="direccion" rows="3" required></textarea>
-
-                <button type="submit">Enviar Pedido</button>
-            </form>
-            <p id="mensajeConfirmacion" class="oculto"></p>
+         <section id="pedido" class="oculto">
+            <h2>Pedido Actual</h2>
+            <div id="pedidoContainer">
+                <p id="mensajeVacio">No hay productos en el pedido.</p>
+                <button id="btnVolverInventario" class="oculto">Añadir productos</button>
+                <table id="tablaPedido" class="oculto">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad Pedida</th>
+                            <th>Disponibles</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </section>
 
         <!-- CONTACTO -->

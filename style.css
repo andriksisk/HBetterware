@@ -73,41 +73,84 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* --- PRODUCTOS --- */
-.grid {
+/* === Estilo del grid de productos === */
+.productos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
+    padding: 20px;
 }
 
+/* === Tarjeta individual del producto === */
 .producto {
-    background: var(--blanco);
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     padding: 15px;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
 }
 
 .producto:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
+/* Imagen del producto a la izquierda */
 .producto img {
-    width: 100%;
-    height: 180px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
+    margin-right: 20px;
 }
 
-.producto h3 {
-    margin: 10px 0 5px;
+/* Información del producto */
+.producto-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.producto p {
-    color: #666;
-    font-size: 0.9rem;
+/* Nombre del producto */
+.producto-info h3 {
+    font-size: 1.3em;
+    margin: 0 0 8px 0;
+    color: #333;
 }
+
+/* Cantidad disponible */
+.producto-info p {
+    margin: 3px 0;
+    color: #555;
+}
+
+/* Precio */
+.producto-info .precio {
+    font-weight: bold;
+    color: #0077b6;
+}
+
+/* Botón añadir */
+.producto button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s;
+}
+
+.producto button:hover {
+    background-color: #0096c7;
+}
+
 
 /* --- PEDIDO --- */
 #pedidoForm {
@@ -186,4 +229,40 @@ footer {
     background-color: var(--secundario);
     color: var(--blanco);
     margin-top: 40px;
+}
+
+/* === ESTILOS DE TABLA DE PEDIDOS === */
+#pedidoContainer {
+    text-align: center;
+}
+
+#tablaPedido {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    max-width: 700px;
+}
+
+#tablaPedido th, #tablaPedido td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+#tablaPedido th {
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+
+#btnVolverInventario {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#btnVolverInventario:hover {
+    background-color: var(--primario);
 }
