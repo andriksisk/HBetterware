@@ -4,15 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HBetterware</title>
+
+    <!-- Favicons: reemplaza los href con los nombres exactos de tus archivos -->
+    <link rel="icon" type="image/x-icon" href="assets/Logo.ico">
+
+    <!-- AQUI: reemplaza 'favicon-rojo-32x32.png' por el nombre del PNG 32x32 rojo 
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/Rojo.png">
+
+     AQUI: reemplaza 'favicon-azul.png' por el nombre del PNG azul (64x64 o el que tengas) 
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/Azul.png">
+
+     Apple touch icon (opcional) 
+     AQUI: reemplaza 'favicon-azul.png' por tu apple-touch-icon si tienes otro 
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/Azul.png"> -->
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1 id="titulo">HBetterware</h1>
-        <div class="acciones">
-            <input type="text" id="searchInput" placeholder="Buscar producto...">
-            <button id="btnPedido">Pedido</button>
-            <button id="btnContacto">Contacto</button>
+        <div class="header-inner">
+            <!-- Logo visible en la página -->
+            <!-- AQUI: reemplaza 'hb-logo.png' por el nombre del archivo PNG que usarás como logo -->
+            <!--<img src="hb-logo.png" alt="HBetterware logo" class="logo" width="64" height="64">-->
+            
+
+            <h1 id="titulo">HBetterware</h1>
+
+            <input type="search" id="searchInput" placeholder="Buscar producto..." aria-label="Buscar producto">
+
+            <div class="header-buttons">
+                <button id="btnPedido">Realizar pedido</button>
+                <button id="btnContacto">Contacto</button>
+                <button id="btnRegistrar">Registrar</button>
+                <img id="iconPerfil" class="oculto perfil-icono" src="assets/perfil.png" alt="Perfil">
+            </div>
+
         </div>
     </header>
 
@@ -22,8 +48,8 @@
             <h2>Inventario de Productos</h2>
             <div class="productos-grid" id="productos">
                 <!-- Los productos se insertan dinámicamente desde script.js -->
-                </div>
-            </section>
+            </div>
+         </section>
 
         <!-- PEDIDOS -->
          <section id="pedido" class="oculto">
@@ -34,13 +60,23 @@
                 <table id="tablaPedido" class="oculto">
                     <thead>
                         <tr>
-                            <th>Producto</th>
-                            <th>Cantidad Pedida</th>
-                            <th>Disponibles</th>
+                            <th>Id del artículo</th>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Precio (unidad)</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
                 </table>
+                <div id="pedidoResumen" class="oculto">
+                    <div class="total-box">
+                        <span>Total del pedido:</span>
+                        <strong id="totalPedido">$0.00 MXN</strong>
+                    </div>
+                    <div class="resumen-acciones">
+                        <button id="btnRealizarPedido">Realizar pedido</button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -63,11 +99,63 @@
                 </iframe>
             </div>
         </section>
+
+        <!-- REGISTRO / INICIO DE SESIÓN -->
+         <section id="registro" class="oculto">
+            <h2>Registro / Inicio de Sesión</h2>
+
+            <form id="formRegistro">
+                <div id="registroCampos">
+                    <input type="text" id="nombreUsuario" placeholder="Nombre" required>
+                    <input type="tel" id="telefonoUsuario" placeholder="Teléfono" required>
+                    <input type="text" id="direccionUsuario" placeholder="Dirección" required>
+                    <input type="text" id="localidadUsuario" placeholder="Localidad" required>
+                    <input type="password" id="passUsuario" placeholder="Contraseña" required>
+
+                    <button type="submit" id="btnRegistrarForm">Registrar</button>
+
+                     <p class="form-toggle">¿Ya tienes cuenta? <a href="#" id="linkToLogin">Inicia sesión aquí</a></p>
+                </div>
+
+                <div id="loginCampos" class="oculto">
+                    <input type="text" id="loginNombre" placeholder="Nombre" required>
+                    <input type="password" id="loginPass" placeholder="Contraseña" required>
+                    <button type="button" id="btnLogin">Iniciar sesión</button>
+                    <p class="form-toggle">¿No tienes cuenta? <a href="#" id="linkToRegister">Regístrate aquí</a></p>
+                </div>
+               
+                <p id="mensajeRegistro"></p>
+            </form>
+        </section>
     </main>
 
     <footer>
         <p>© 2025 HBetterware</p>
     </footer>
+    
+    <!-- Modal: Aviso para iniciar sesión -->
+     <div id="loginWarning" class="modal oculto" role="dialog" aria-modal="true" aria-labelledby="loginWarningTitle">
+        <div class="modal-content">
+            <h3 id="loginWarningTitle">Necesitas iniciar sesión</h3>
+            <p>Debes iniciar sesión para poder añadir productos al pedido.</p>
+            <div class="modal-actions">
+                <button id="modalLoginBtn">Iniciar sesión</button>
+                <button id="modalCloseBtn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Aviso producto sin existencias -->
+     <div id="outOfStockModal" class="modal oculto" role="dialog" aria-modal="true" aria-labelledby="outOfStockTitle">
+        <div class="modal-content">
+            <h3 id="outOfStockTitle">Producto sin existencias</h3>
+            <p id="outOfStockMsg">Lo sentimos, no quedan existencias de este producto.</p>
+            <div class="modal-actions">
+                <button id="outOfStockClose">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
 </body>

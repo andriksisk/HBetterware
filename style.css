@@ -17,17 +17,68 @@ header {
     background-color: var(--primario);
     color: var(--blanco);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 15px 30px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* evita que se apilen los elementos */
 }
 
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.logo {
+    width: 64px;
+    height: auto;
+    display: block;
+    flex: 0 0 auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+#searchInput {
+    width: 100%;             /* Se adapta al espacio disponible */
+    max-width: 400px;        /* 📌 Tamaño máximo de la barra */
+    min-width: 100px;        /* 📌 Tamaño mínimo para pantallas pequeñas */
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;  /* evita que padding aumente el tamaño total */
+}
+
+/* En pantallas pequeñas, haz que ocupe más espacio */
+@media (max-width: 600px) {
+    #searchInput {
+        max-width: 260px;
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 420px) {
+    #searchInput {
+        max-width: 200px;
+        min-width: 80px;
+        font-size: 14px;
+    }
+}
+
+
 header h1 {
-    margin: 0;
+    margin: 0 12px;
     font-weight: 600;
     cursor: pointer;
     transition: opacity 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 0 1 auto;
+    max-width: 50%;
 }
 
 header h1:hover {
@@ -38,6 +89,7 @@ header h1:hover {
     display: flex;
     gap: 10px;
     align-items: center;
+    flex: 0 0 auto;
 }
 
 header input {
@@ -62,6 +114,13 @@ header button:hover {
     background-color: #007a87;
 }
 
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;  /* 📌 Hace que los botones Y el icono se alineen */
+}
+
+
 /* --- SECCIONES --- */
 main {
     padding: 30px;
@@ -73,13 +132,28 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* === Estilo del grid de productos === */
+/* === Grid de productos: máximo 4 columnas === */
 .productos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr)); /* hasta 4 columnas */
+  gap: 18px;
+  max-width: 1200px; /* opcional: limita ancho total para centrar */
+  margin: 0 auto;
+  padding: 10px;
 }
+
+/* Ajuste responsivo: menos columnas en pantallas pequeñas */
+@media (max-width: 1100px) {
+  .productos-grid { grid-template-columns: repeat(3, minmax(220px,1fr)); }
+}
+@media (max-width: 800px) {
+  .productos-grid { grid-template-columns: repeat(2, minmax(200px,1fr)); }
+}
+@media (max-width: 480px) {
+  .productos-grid { grid-template-columns: 1fr; }
+}
+
+
 
 /* === Tarjeta individual del producto === */
 .producto {
@@ -97,7 +171,6 @@ h2 {
     transform: scale(1.02);
 }
 
-/* Imagen del producto a la izquierda */
 .producto img {
     width: 100px;
     height: 100px;
@@ -106,33 +179,28 @@ h2 {
     margin-right: 20px;
 }
 
-/* Información del producto */
 .producto-info {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-/* Nombre del producto */
 .producto-info h3 {
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin: 0 0 8px 0;
     color: #333;
 }
 
-/* Cantidad disponible */
 .producto-info p {
     margin: 3px 0;
     color: #555;
 }
 
-/* Precio */
 .producto-info .precio {
     font-weight: bold;
     color: #0077b6;
 }
 
-/* Botón añadir */
 .producto button {
     position: absolute;
     bottom: 10px;
@@ -150,7 +218,6 @@ h2 {
 .producto button:hover {
     background-color: #0096c7;
 }
-
 
 /* --- PEDIDO --- */
 #pedidoForm {
@@ -198,6 +265,64 @@ h2 {
 
 .oculto {
     display: none;
+}
+
+/* === Estilos para resumen y botón de pedido === */
+#pedidoResumen {
+    max-width: 700px;
+    margin: 18px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--blanco);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.total-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.total-box span {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.total-box strong {
+    font-size: 1.2rem;
+    color: #0077b6;
+    margin-top: 6px;
+}
+
+/* Botón realizar pedido */
+#btnRealizarPedido {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#btnRealizarPedido:hover {
+    background-color: var(--primario);
+}
+
+/* Ajuste responsivo: apilar resumen bajo la tabla en móvil */
+@media (max-width: 600px) {
+    #pedidoResumen {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .total-box {
+        align-items: flex-start;
+    }
 }
 
 /* --- CONTACTO --- */
@@ -253,6 +378,34 @@ footer {
     color: var(--blanco);
 }
 
+#tablaPedido tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Botón eliminar en la tabla de pedidos */
+#tablaPedido .btn-eliminar {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#tablaPedido .btn-eliminar:hover {
+    background: #c0392b;
+}
+
+/* Ajuste responsivo: botón más pequeño en móviles */
+@media (max-width: 600px) {
+    #tablaPedido .btn-eliminar {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+}
+
+
 #btnVolverInventario {
     background-color: var(--secundario);
     color: var(--blanco);
@@ -265,4 +418,222 @@ footer {
 
 #btnVolverInventario:hover {
     background-color: var(--primario);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+    .producto {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .producto img {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        height: auto;
+    }
+
+    .producto button {
+        position: static;
+        margin-top: 10px;
+        align-self: flex-end;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        width: 56px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    header h1 {
+        text-align: center;
+        order: 2;
+    }
+
+    .acciones {
+        justify-content: center;
+        order: 3;
+        gap: 6px;
+    }
+
+    header input { min-width: 140px; }
+}
+
+/* === ESTILOS SPECÍFICOS PARA REGISTRO / LOGIN (UNA COLUMNA) === */
+#registro {
+    max-width: 420px;
+    margin: 30px auto;
+    background-color: var(--blanco);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#registro form {
+    display: flex;
+    flex-direction: column; /* una sola columna */
+    gap: 10px;
+}
+
+#registro input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+#registro button {
+    margin-top: 6px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--secundario);
+    color: var(--blanco);
+    cursor: pointer;
+}
+
+#registro button:hover {
+    background-color: var(--primario);
+}
+
+/* mensajes e enlaces */
+#mensajeRegistro {
+    margin-top: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.form-toggle {
+    margin: 6px 0 0 0;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.form-toggle a {
+    color: var(--secundario);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-toggle a:hover {
+    text-decoration: underline;
+}
+
+/* asegurar que los bloques ocupen ancho completo en móvil */
+@media (max-width: 600px) {
+    #registro {
+        margin: 16px;
+        padding: 14px;
+    }
+}
+
+/* Icono de perfil */
+.perfil-icono {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+
+
+/* Marco dorado para administrador */
+.perfil-admin {
+    border-color: gold;
+}
+
+/* === Modal aviso iniciar sesión === */
+.modal {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal.oculto {
+  display: none;
+}
+
+.modal-content {
+  background: var(--blanco);
+  padding: 18px;
+  border-radius: 10px;
+  width: 320px;
+  max-width: calc(100% - 32px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin: 0 0 8px 0;
+  color: var(--secundario);
+}
+
+.modal-content p {
+  margin: 0 0 14px 0;
+  color: #444;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modal-actions button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+#modalLoginBtn {
+  background: var(--secundario);
+  color: var(--blanco);
+}
+
+#modalCloseBtn {
+  background: #ddd;
+  color: #222;
+}
+
+/* === Modal aviso sin existencias (usa misma estructura que el otro modal) === */
+#outOfStockModal .modal-content { 
+  /* puede heredar estilos del otro modal; sobrescribo mínimos para claridad */
+  max-width: 360px;
+}
+
+/* Botón "Añadir" deshabilitado */
+.producto-info button[disabled],
+.producto-info .btn-disabled {
+  background-color: #bdbdbd; /* gris */
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+/* Si usas clase para estilos visuales extra */
+.btn-disabled {
+  background-color: #bdbdbd !important;
+  color: #ffffff !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
 }
