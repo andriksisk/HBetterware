@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" focusTraversable="true" prefHeight="638.0" prefWidth="968.0" style="-fx-background-color: #00B0C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="betterware.controllers.InicioController">
+   <children>
+      <ImageView fitHeight="628.0" fitWidth="968.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/social_image_resized.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="inicioBoton" layoutX="242.0" layoutY="376.0" mnemonicParsing="false" onAction="#cargaTablaP" prefHeight="27.0" prefWidth="484.0" style="-fx-border-color: black; -fx-background-color: white; -fx-font-family: sans-serif;" stylesheets="@../css/botonInicio.css" text="Iniciar" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="30.0" />
+         </font>
+         <effect>
+            <DropShadow height="18.07" radius="12.9325" width="35.66">
+               <color>
+                  <Color red="0.8" green="0.8" blue="0.8" opacity="0.85" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="710.0" prefWidth="780.0" style="-fx-background-color: #00B0C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="betterware.controllers.EditarController">
+   <children>
+      <BorderPane prefHeight="651.0" prefWidth="778.0">
+         <bottom>
+            <GridPane prefHeight="710.0" prefWidth="778.0" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.20001220703125" minWidth="10.0" prefWidth="11.799989700317383" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="720.0000102996826" minWidth="10.0" prefWidth="720.0000102996826" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.199951171875" minWidth="7.7999267578125" prefWidth="7.7999267578125" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="129.20000762939452" minHeight="0.0" prefHeight="40.000005340576166" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="610.2" minHeight="10.0" prefHeight="596.5999633789063" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="52.200000000000045" minHeight="10.0" prefHeight="38.400036621093705" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Información del Producto" textAlignment="CENTER" wrappingWidth="682.5976676940918" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <Pane prefHeight="600.0" prefWidth="721.0" style="-fx-background-color: #00B0C8; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00b0c7" height="116.0" layoutX="21.0" layoutY="423.0" stroke="WHITE" strokeType="INSIDE" width="432.0" />
+                        <MenuButton fx:id="TipoPromos" accessibleRole="COMBO_BOX" alignment="CENTER" disable="true" layoutX="236.0" layoutY="481.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="194.0" text="Tipo de Promo">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <items>
+                              <RadioMenuItem fx:id="PromCasita" mnemonicParsing="false" text="Casita">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="groupPromocion" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem fx:id="PromCasitaPlus" mnemonicParsing="false" text="Casita Premium" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromHiper" mnemonicParsing="false" text="Híper Oferta" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromBetterLow" mnemonicParsing="false" text="BetterLocura" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromMega" mnemonicParsing="false" text="Mega Oferta" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromPrecioRojo" mnemonicParsing="false" text="Precio Rojo" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromSegundo" mnemonicParsing="false" text="Lleva el segundo a..." toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromEstandar" mnemonicParsing="false" text="Descuento Estandar" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="NoProm" mnemonicParsing="false" text="No" toggleGroup="$groupPromocion" />
+                           </items>
+                        </MenuButton>
+                        <TextField fx:id="ProductoNombre" layoutX="19.0" layoutY="46.0" prefHeight="34.0" prefWidth="434.0" />
+                        <Text fill="WHITE" layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del producto:" wrappingWidth="206.62384033203125">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="561.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="554.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="570.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bolsa">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="EditCodigo" editable="false" layoutX="525.0" layoutY="46.0" prefHeight="34.0" prefWidth="140.0" />
+                        <TextField fx:id="editBolsa" layoutX="525.0" layoutY="121.0" prefHeight="34.0" prefWidth="140.0" />
+                        <TextField fx:id="EditCantidad" layoutX="525.0" layoutY="206.0" prefHeight="34.0" prefWidth="140.0" />
+                        <Text fill="WHITE" layoutX="21.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" wrappingWidth="206.62384033203125">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="editDesc" layoutX="20.0" layoutY="136.0" prefHeight="110.0" prefWidth="432.0" wrapText="true" />
+                        <Text fill="WHITE" layoutX="21.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Especificaciones:" wrappingWidth="206.62384033203125">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="editEspcs" layoutX="20.0" layoutY="294.0" prefHeight="110.0" prefWidth="432.0" wrapText="true" />
+                        <Text fill="WHITE" layoutX="34.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="526.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio-Estandar">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="editPE" layoutX="525.0" layoutY="305.0" prefHeight="34.0" prefWidth="140.0" />
+                        <TextField fx:id="editPP" disable="true" layoutX="46.0" layoutY="494.0" prefHeight="34.0" prefWidth="140.0" />
+                        <Text fill="WHITE" layoutX="41.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio-Promoción">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="333.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo?" wrappingWidth="78.62380981445312">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <CheckBox fx:id="editNuevo" layoutX="423.0" layoutY="561.0" mnemonicParsing="false" />
+                        <MenuButton layoutX="131.0" layoutY="552.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="136.0" text="Categorías">
+                          <items>
+                              <RadioMenuItem fx:id="Practimuebles" mnemonicParsing="false" text="Practimuebles">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="groupCat" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem fx:id="Hogar" mnemonicParsing="false" text="Hogar" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Recamara" mnemonicParsing="false" text="Recámara" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Cocina" mnemonicParsing="false" text="Cocina" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Gurmy" mnemonicParsing="false" text="Gurmy " toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Baño" mnemonicParsing="false" text="Baño" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="HigieneLimp" mnemonicParsing="false" text="Higiene y Limpieza" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Bienestar" mnemonicParsing="false" text="Bienestar" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Contigo" mnemonicParsing="false" text="Contigo" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Verano" mnemonicParsing="false" text="Verano" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="DiaMuertos" mnemonicParsing="false" text="Dia de Muertos" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Navidad" mnemonicParsing="false" text="Navidad" toggleGroup="$groupCat" />
+                          </items>
+                        </MenuButton>
+                        <Text fill="WHITE" layoutX="182.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Promoción">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <CheckBox fx:id="checkPermitir" layoutX="288.0" layoutY="437.0" mnemonicParsing="false" />
+                        <Button fx:id="BtonCargarImg" layoutX="542.0" layoutY="362.0" mnemonicParsing="false" onAction="#cargarImagen" text="Cargar Imagen" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00b0c7" height="186.0" layoutX="491.0" layoutY="400.0" stroke="WHITE" strokeType="INSIDE" width="202.0" />
+                        <ImageView fx:id="imgPreview" fitHeight="182.0" fitWidth="200.0" layoutX="489.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="15.0" prefWidth="721.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="GuardarEdit" layoutX="565.0" layoutY="7.0" mnemonicParsing="false" onAction="#guardarCambios" prefHeight="32.0" prefWidth="142.0" text="Guardar" />
+                        <Button fx:id="CancelarBoton" layoutX="397.0" layoutY="7.0" mnemonicParsing="false" onAction="#CancelarBton" prefHeight="32.0" prefWidth="142.0" text="Cancelar" />
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

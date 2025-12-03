@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/dao/ConexionDB.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/controllers/PedidoController.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/models/Pedidos.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/Inicio.fxml</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/accionAgregarController.fxml</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/css/botonInicio.css</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/accionAgregarPedido.fxml</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/accionEditarController.fxml</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/accionEditarPedidoController.fxml</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/accionFiltroController.fxml</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/accionFiltroPedidosController.fxml</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/tablaPrincipal.fxml</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/aux/FiltroProducto.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/aux/ItemFila.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/controllers/AccionAgregarControllerController.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/controllers/EditarController.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/controllers/EditarPedidoController.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/dao/PedidosDao.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/models/DetallePedido.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/controllers/FiltroController.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/controllers/TablaPrincipalController.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/dao/DetallePedidoDao.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/DetallesPedidoView.fxml</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/controllers/DetallesPedidoController.java</file>
+            <file>file:/C:/Users/trila/OneDrive/Documents/NetBeansProjects/Betterware/src/betterware/controllers/FiltroPedidosController.java</file>
+        </group>
+    </open-files>
+</project-private>

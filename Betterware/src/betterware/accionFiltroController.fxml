@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="778.0" style="-fx-background-color: #00B0C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="betterware.controllers.FiltroController">
+   <children>
+      <BorderPane prefHeight="517.0" prefWidth="778.0">
+         <center>
+            <GridPane prefHeight="489.0" prefWidth="619.0" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.20001220703125" minWidth="10.0" prefWidth="11.799989700317383" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="720.0000102996826" minWidth="10.0" prefWidth="720.0000102996826" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.199951171875" minWidth="7.7999267578125" prefWidth="7.7999267578125" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="129.20000762939452" minHeight="0.0" prefHeight="45.199990844726564" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="450.8" minHeight="10.0" prefHeight="425.7999633789062" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="52.200000000000045" minHeight="10.0" prefHeight="45.800036621093795" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtros" textAlignment="CENTER" wrappingWidth="682.5976676940918" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #00B0C8; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Text fill="WHITE" layoutX="501.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorías:" wrappingWidth="100.22392272949219">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="87.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio Desde-Hasta:" wrappingWidth="172.22381591796875">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="486.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disponibilidad:" wrappingWidth="133.02386474609375">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="141.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bolsa:" wrappingWidth="59.42384338378906">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="125.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo?" wrappingWidth="72.22383117675781">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="498.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Promoción:" wrappingWidth="109.02386474609375">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="SliderPrecio" layoutX="32.0" layoutY="98.0" max="2000.0" prefHeight="23.0" prefWidth="279.0" />
+                       
+                        <RadioButton fx:id="rbtnNuevo" layoutX="96.0" layoutY="341.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="45.0" text="Si" textFill="WHITE">
+                            <toggleGroup>
+                                    <ToggleGroup fx:id="groupEstado" />
+                                 </toggleGroup>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="rbtnUsado" layoutX="193.0" layoutY="341.0" mnemonicParsing="false" text="No" textFill="#ececec" toggleGroup="$groupEstado">
+                           <font>
+                              <Font size="15.0" />
+                           </font></RadioButton>
+                        <MenuButton layoutX="454.0" layoutY="200.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="195.0" text="Disponibilidad">
+                           <items>
+                              <RadioMenuItem fx:id="DispAlta" mnemonicParsing="false" text="Alta">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="groupDisp" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem fx:id="DispMedia" mnemonicParsing="false" text="Media" toggleGroup="$groupDisp" />
+                              <RadioMenuItem fx:id="DispBaja" mnemonicParsing="false" text="Baja" toggleGroup="$groupDisp" />
+                              <RadioMenuItem fx:id="DispNada" mnemonicParsing="false" text="Sin stock" toggleGroup="$groupDisp" />
+                           </items>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </MenuButton>
+                        <Label fx:id="lblMin" layoutX="24.0" layoutY="132.0" prefHeight="25.0" prefWidth="49.0" text="MXN: 0" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        <Label fx:id="lblValor" layoutX="154.0" layoutY="132.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        <Label fx:id="lblMax" layoutX="270.0" layoutY="132.0" text="MXN: 2000" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        <MenuButton layoutX="454.0" layoutY="308.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="195.0" text="Categorías">
+                           <items>
+                              <RadioMenuItem fx:id="Practimuebles" mnemonicParsing="false" text="Practimuebles">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="groupCat" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem fx:id="Hogar" mnemonicParsing="false" text="Hogar" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Recamara" mnemonicParsing="false" text="Recámara" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Cocina" mnemonicParsing="false" text="Cocina" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Gurmy" mnemonicParsing="false" text="Gurmy " toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Baño" mnemonicParsing="false" text="Baño" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="HigieneLimp" mnemonicParsing="false" text="Higiene y Limpieza" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Bienestar" mnemonicParsing="false" text="Bienestar" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Contigo" mnemonicParsing="false" text="Contigo" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Verano" mnemonicParsing="false" text="Verano" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="DiaMuertos" mnemonicParsing="false" text="Dia de Muertos" toggleGroup="$groupCat" />
+                              <RadioMenuItem fx:id="Navidad" mnemonicParsing="false" text="Navidad" toggleGroup="$groupCat" />
+                           </items>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </MenuButton>
+                        <Spinner fx:id="SpinnerBolsa" editable="true" layoutX="87.0" layoutY="227.0" />
+                        <MenuButton fx:id="TipoPromos" accessibleRole="COMBO_BOX" alignment="CENTER" layoutX="454.0" layoutY="80.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="194.0" text="Lista de Promociones">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <items>
+                              <RadioMenuItem fx:id="PromCasita1" mnemonicParsing="false" text="Casita">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="groupPromocion" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem fx:id="PromCasitaPlus1" mnemonicParsing="false" text="Casita Premium" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromHiper1" mnemonicParsing="false" text="Híper Oferta" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromBetterLow1" mnemonicParsing="false" text="BetterLocura" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromMega" mnemonicParsing="false" text="Mega Oferta" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromPrecioRojo" mnemonicParsing="false" text="Precio Rojo" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromSegundo" mnemonicParsing="false" text="Lleva el segundo a..." toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="PromEstandar" mnemonicParsing="false" text="Descuento Estandar" toggleGroup="$groupPromocion" />
+                              <RadioMenuItem fx:id="NoProm1" mnemonicParsing="false" text="No" toggleGroup="$groupPromocion" />
+                           </items>
+                        </MenuButton>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="CancelarBoton" layoutX="374.0" layoutY="7.0" mnemonicParsing="false" onAction="#CancelarBton" prefHeight="32.0" prefWidth="165.0" text="Cancelar" />
+                        <Button fx:id="buscarBton" layoutX="557.0" layoutY="7.0" mnemonicParsing="false" onAction="#guardarBuscarBton" prefHeight="32.0" prefWidth="160.0" text="Buscar" />
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

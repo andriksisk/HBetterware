@@ -1,0 +1,14 @@
+.button {
+    -fx-background-color: #c2fbd7;
+    -fx-background-radius: 100px;
+    -fx-text-fill: gray;
+    -fx-font-family: "CerebriSans-Regular", "Roboto", sans-serif;
+    -fx-font-size: 16px;
+    -fx-padding: 7px 20px;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, black);
+}
+
+.button:hover {
+    -fx-effect: dropshadow(gaussian, grey, 3, 0.5, 0, 4);
+}

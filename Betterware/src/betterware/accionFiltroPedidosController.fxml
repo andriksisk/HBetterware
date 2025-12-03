@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="515.0" prefWidth="608.0" style="-fx-background-color: #00B0C8;" 
+            xmlns="http://javafx.com/javafx/23.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="betterware.controllers.FiltroPedidosController">
+
+   <children>
+      <BorderPane prefHeight="518.0" prefWidth="597.0">
+         <center>
+            <GridPane prefHeight="489.0" prefWidth="619.0" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="11.8" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="720.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="7.8" prefWidth="7.8" />
+               </columnConstraints>
+
+               <rowConstraints>
+                  <RowConstraints minHeight="0.0" prefHeight="45.2" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="425.8" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="45.8" vgrow="SOMETIMES" />
+               </rowConstraints>
+
+               <children>
+
+                  <!-- Título -->
+                  <Text fill="WHITE" text="Filtros" textAlignment="CENTER" wrappingWidth="581.8"
+                        GridPane.columnIndex="1">
+                     <font><Font size="30.0" /></font>
+                  </Text>
+
+                  <!-- Panel principal -->
+                  <Pane prefHeight="200.0" prefWidth="200.0" 
+                        style="-fx-background-color: #00B0C8; -fx-border-color: white;" 
+                        GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+
+                        <Text fill="WHITE" layoutX="187.0" layoutY="51.0" text="Buscar por Fechas" wrappingWidth="206.6">
+                           <font><Font size="23.0" /></font>
+                        </Text>
+
+                        <!-- DatePicker CON fx:id -->
+                        <DatePicker fx:id="dpFechaPedido" layoutX="203.0" layoutY="162.0" />
+
+                        <Text fill="WHITE" layoutX="134.0" layoutY="134.0" 
+                              text="Seleccione la fecha del pedido" wrappingWidth="373.8">
+                           <font><Font size="23.0" /></font>
+                        </Text>
+
+                     </children>
+                  </Pane>
+
+                  <!-- Botones -->
+                  <Pane prefHeight="200.0" prefWidth="200.0" 
+                        GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="CancelarBoton" text="Cancelar"
+                                layoutX="197.0" layoutY="7.0"
+                                prefHeight="32.0" prefWidth="165.0"
+                                onAction="#CancelarBton" />
+
+                        <Button fx:id="buscarBton" text="Buscar"
+                                layoutX="414.0" layoutY="7.0"
+                                prefHeight="32.0" prefWidth="160.0"
+                                onAction="#guardarBuscarBton" />
+                     </children>
+                  </Pane>
+
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+
+</AnchorPane>
+
